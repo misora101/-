@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ガチャゲーム</title>
+
+<style>
+body{
+    font-family: sans-serif;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    text-align:center;
+    color:white;
+    padding-top:100px;
+}
+
+h1{
+    font-size:40px;
+}
+
+#result{
+    font-size:28px;
+    margin:30px;
+    min-height:40px;
+}
+
+button{
+    font-size:20px;
+    padding:15px 40px;
+    border:none;
+    border-radius:10px;
+    background:#ffcc00;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.star5{ color:gold; font-size:32px;}
+.star4{ color:#ffccff;}
+.star3{ color:white;}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎮 ガチャゲーム</h1>
+
+<div id="result">ボタンを押してガチャを回そう！</div>
+
+<button onclick="gacha()">ガチャを引く</button>
+
+<script>
+
+const star5 = [
+"伝説の勇者",
+"神龍",
+"時空の魔導士"
+];
+
+const star4 = [
+"エリート剣士",
+"炎の魔法使い",
+"雷のハンター"
+];
+
+const star3 = [
+"村人",
+"見習い剣士",
+"旅の商人",
+"新米魔法使い"
+];
+
+function gacha(){
+
+let r = Math.random();
+let result = document.getElementById("result");
+
+if(r < 0.05){
+
+let item = star5[Math.floor(Math.random()*star5.length)];
+result.innerHTML = "<span class='star5'>★★★★★ "+item+"</span>";
+
+}else if(r < 0.25){
+
+let item = star4[Math.floor(Math.random()*star4.length)];
+result.innerHTML = "<span class='star4'>★★★★ "+item+"</span>";
+
+}else{
+
+let item = star3[Math.floor(Math.random()*star3.length)];
+result.innerHTML = "<span class='star3'>★★★ "+item+"</span>";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
